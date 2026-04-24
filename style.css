@@ -1,0 +1,221 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,
+html{
+    width: 100%;
+    height: 100%;
+}
+
+:root{
+    --pri:#2a1610;
+    --sec:#ad826c;
+    --tri1:#c3980d;
+    --tri2:#FCDEC0;
+
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+    
+}
+
+nav{
+    width: 100%;
+    height: 60px;
+    background:var(--tri1);
+     padding: 40px 30px;
+}
+
+
+section.allelems{
+    padding: 40px;
+    padding-top: 80px;
+    color: var(--tri2);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    height: 100%;
+      background: var(--pri);
+      position:absolute;
+     
+}
+
+.elem{
+    background-color: var(--tri1);
+    height: 350px;
+    width: 255px;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  
+}
+
+.elem:active{
+    scale: 0.95;
+}
+
+.elem:hover{
+    color: aliceblue;
+    transform: translatey(-1rem);
+}
+
+
+
+.elem h2{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.elem img{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.full-elem {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--pri);
+    color: var(--tri2);
+    padding: 40px;
+    z-index: 10; /* sits on top of everything */
+}
+
+.full-elem .back{
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    background-color: red;
+    color: white;
+    padding: 10px 11px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.back:active{
+    scale: 0.985;
+}
+
+.todo-list-fullpage{
+    display: block;
+    font-size: 70px;
+}
+
+.todo-list-fullpage .todo-container{
+    width: 100%;
+    height: 75%;
+    background-color: var(--pri);
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-list-fullpage .todo-container .add-task{
+    height: 100%;
+    width: 33%;
+    background-color: var(--sec);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+
+}
+.todo-list-fullpage .todo-container .add-task input{
+    width: 100%;
+    padding: 15px 20px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 10px;
+    background-color: var(--pri);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 25px;
+    border-radius: 12px;
+}
+
+.todo-list-fullpage .todo-container .add-task textarea{
+    width: 100%;
+    height: 80%;
+    padding: 15px 20px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 10px;
+    background-color: var(--tri2);
+    color: rgb(30, 24, 24);
+    font-weight: 700;
+    font-size: 15px;
+     border-radius: 10px;
+}
+
+.todo-list-fullpage .todo-container .add-task button{
+    width: 100%;
+    padding: 15px 20px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 10px;
+    background-color: var(--tri1);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 25px;
+     border-radius: 20px;
+     transition: all 0.2s ease-in-out;
+}
+
+.todo-container .add-task button:active{
+    scale: 0.95;
+}
+
+.todo-list-fullpage .todo-container .all-task{
+    width: 65%;
+    height: 100%;
+    background-color: var(--sec);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.tasks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--tri2);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.tasks h5{
+    color: var(--pri);
+    font-size: 30px;
+}
+
+.tasks button{
+    padding: 10px 15px;
+    background-color: green;
+    color: var(--tri2);
+    font-weight: 700;
+    border-radius: 10px
+}
+
+.tasks button:active{
+    scale: 0.95;
+}

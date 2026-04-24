@@ -219,3 +219,7 @@ section.allelems{
 .tasks button:active{
     scale: 0.95;
 }
+
+.task button:hover{
+    transform: translateX(1.1);
+}

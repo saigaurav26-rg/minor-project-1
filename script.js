@@ -27,51 +27,60 @@ allElem.forEach(function (elem) {
 }
 openfeatures();
 
+
+
+function todolist(){
 let form = document.querySelector("form");
 let taskinput = document.querySelector("form input");
 let taskinputtextarea = document.querySelector("form textarea");
 let taskcheckbox = document.querySelector("form #check");
 
 
-let currenttask = [
-    {
-        task : "ghar jao",
-        details :"padai karo",
-        imp: true
-    },
+var currenttask = []; 
 
-    {
-        task : "revison ",
-        details :"coading practice",
-        imp: true
-    },
+if(localStorage.getItem("currenttask")){
+    currenttask = JSON.parse(localStorage.getItem("currenttask"));
+}else{
+    //alert("task list is empty...")
+    console.log("task list is empty..");
+    
+}
 
-    {
-        task : "phone chalana",
-        details :"raat ko sote samay",
-        imp: false
-    },
-]
 
 // rendertask() function is used to add all the task present in current task into alltasks
 function rendertask(){
+    
     let allTask = document.querySelector(".all-task");
 
 var sum = "";
 
-currenttask.forEach(function(elem){
+currenttask.forEach(function(elem,idx){
     sum= sum + `<div class="tasks">
                         <h5>${elem.task}<span class=${elem.imp}>imp</span></h5>
-                        <button>mark as completed</button>
+                        <button id=${idx}>mark as completed</button>
                     </div>`
     
 });
 
 allTask.innerHTML = sum;
+localStorage.setItem("currenttask",JSON.stringify(currenttask));
+
+let markcompletedbtn = document.querySelectorAll(".tasks button");
+
+markcompletedbtn.forEach(function(btn){
+    btn.addEventListener("click",function(){
+        currenttask.splice(btn.id,1)
+        rendertask();
+    })
+    
+})
 }
 rendertask();
 
+
+
 // here we are push the input we are giving into alltask using render funtion...
+
 form.addEventListener("submit",function(dets){
     dets.preventDefault();////stops the default behavior of form i.e.stops reloading the page//////
 
@@ -84,14 +93,22 @@ form.addEventListener("submit",function(dets){
         task: taskinput.value,
         details: taskinputtextarea.value,
         imp: taskcheckbox.checked,
-    }
-)
+    })
+
  taskinput.value="";
  taskinputtextarea.value="";
  taskcheckbox.checked= false;
-
-rendertask();
-
+    rendertask();
     
 });
+}
+
+todolist();
+
+
+// todolist logic is completed upto here........ 
+
+
+
+
 

@@ -108,6 +108,50 @@ todolist();
 
 // todolist logic is completed upto here........ 
 
+let dayPlanner = document.querySelector(".day-planner");
+
+let dayPlanData = JSON.parse(localStorage.getItem("dayPlanData"))||{};
+
+let hours = Array.from({length:18},function(elem,idx){
+    //console.log(idx);
+    return `${6+idx}:00 - ${7+idx}:00`
+})
+
+//console.log(hours);
+
+let wholeDaySum = "";
+
+hours.forEach(function(elem,idx){
+
+    let SaveData = (dayPlanData[idx] || "")
+    
+    wholeDaySum = wholeDaySum + `<div class="day-planner-time">
+                     <p>${elem}</p>
+                    <input id=${idx} type="text" placeholder="..." value ="${SaveData}">
+                   </div>`
+})
+
+dayPlanner.innerHTML= wholeDaySum;
+
+
+
+//console.log(dayPlanData);
+
+
+let dayPlannerInput = document.querySelectorAll(".day-planner input");
+
+dayPlannerInput.forEach(function(elem){
+    elem.addEventListener("input",function(){
+        //console.log(elem);
+        dayPlanData[elem.id] = elem.value;
+        localStorage.setItem("dayPlanData",JSON.stringify(dayPlanData))
+        
+    })
+})
+
+
+
+
 
 
 

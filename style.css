@@ -276,4 +276,59 @@ section.allelems{
 }
 
 
-/*todo list designing part is completed upto here..........
+/*todo list designing part is completed upto here..........*/
+
+
+.daily-planner-fullpage{
+    display: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.daily-planner-fullpage h2{
+    font-size: 70px;
+}
+
+.daily-planner-fullpage .day-planner{
+    background-color:rgba(148, 108, 63, 0.783);
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding:20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time{
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+     margin-bottom: 10px;
+     width: 48%;
+     
+}
+
+.day-planner .day-planner-time p{
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    font-size: 20px;
+}
+
+.day-planner .day-planner-time input{
+    height: 60px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color:var(--pri);
+    font-size: 18px;
+    padding: 10px 15px;
+    padding-top: 35px;
+    color: var(--tri2);
+    border-radius: 10px;
+}
+

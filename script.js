@@ -133,8 +133,6 @@ hours.forEach(function(elem,idx){
 
 dayPlanner.innerHTML= wholeDaySum;
 
-
-
 //console.log(dayPlanData);
 
 
@@ -149,6 +147,7 @@ dayPlannerInput.forEach(function(elem){
     })
 })
 
+//daily planner section is completed here
 
 
 

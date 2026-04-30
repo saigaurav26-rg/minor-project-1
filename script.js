@@ -108,13 +108,19 @@ todolist();
 
 // todolist logic is completed upto here........ 
 
-let dayPlanner = document.querySelector(".day-planner");
+function dailyplanner(){
+    let dayPlanner = document.querySelector(".day-planner");
 
 let dayPlanData = JSON.parse(localStorage.getItem("dayPlanData"))||{};
 
 let hours = Array.from({length:18},function(elem,idx){
     //console.log(idx);
-    return `${6+idx}:00 - ${7+idx}:00`
+    //return `${6+idx}:00 - ${7+idx}:00`;
+    
+    let start = 6 + idx;
+    let end = 7 + idx;
+
+    return formatTime(start) + " - " + formatTime(end);
 })
 
 //console.log(hours);
@@ -147,7 +153,59 @@ dayPlannerInput.forEach(function(elem){
     })
 })
 
-//daily planner section is completed here
+function formatTime(hour) {
+    let suffix;
+    let formattedHour;
+
+    if (hour >= 12) {
+        suffix = "PM";
+    } else {
+        suffix = "AM";
+    }
+
+    if (hour % 12 === 0) {
+        formattedHour = 12;   // handles 0 and 12
+    } else {
+        formattedHour = hour % 12;
+    }
+
+    return  formattedHour + ":00" + suffix;
+}
+
+}
+
+dailyplanner();
+
+//daily planner section is completed here.......
+
+let motivation = document.querySelector(".motivation2 h2");
+let author = document.querySelector(".motivation3 h1");
+let back = document.querySelectorAll(".back");
+
+function fetchquotes(){
+     let request= fetch("http://api.quotable.io/random");
+     request.then(raw=>raw.json())
+     .then(function(data){
+        motivation.innerHTML = "* " + data.content;
+        author.innerHTML = "- " + data.author;
+     })
+}
+fetchquotes();
+
+back.forEach(function(btn){
+    
+    btn.addEventListener("click",function(){
+       // console.log(btn.id);
+        fetchquotes()
+    })
+    
+})
+
+
+// motivation section is completed 
+
+
+
 
 
 

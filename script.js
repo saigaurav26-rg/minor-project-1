@@ -186,7 +186,7 @@ function fetchquotes(){
      let request= fetch("http://api.quotable.io/random");
      request.then(raw=>raw.json())
      .then(function(data){
-        motivation.innerHTML = "* " + data.content;
+        motivation.innerHTML = data.content;
         author.innerHTML = "- " + data.author;
      })
 }

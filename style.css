@@ -445,3 +445,55 @@ section.allelems{
 /*motivation page designing ends........*/
 
 /*pomodoro timer page designing begins*/
+
+.pomodoro-timer-page{
+    display: none;
+}
+.pomodoro-timer-page h1{
+    font-size: 50px;
+}
+
+.pomodoro-timer-page .pomo-heading{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    background-color: var(--tri1);
+    padding: 20px 20px;
+    border-radius: 40px;
+    color: white;
+}
+
+.pomodoro-timer-page .pomo-timer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 40px 40px;
+    border-radius: 40px;
+}
+
+.pomodoro-timer-page .pomo-timer h1{
+    font-size: 150px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pomodoro-timer-page .pomo-timer button{
+    padding: 15px 40px;
+    letter-spacing: 2px;
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: 2px 12px 10px black;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    background-color: var(--sec);
+    font-weight: 700;
+    color: white;
+}
+
+.pomodoro-timer-page .pomo-timer button:active{
+    scale: 0.95;
+}
+

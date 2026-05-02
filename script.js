@@ -182,7 +182,8 @@ let motivation = document.querySelector(".motivation2 h2");
 let author = document.querySelector(".motivation3 h1");
 let back = document.querySelectorAll(".back");
 
-function fetchquotes(){
+function motivationquotes(){
+    function fetchquotes(){
      let request= fetch("http://api.quotable.io/random");
      request.then(raw=>raw.json())
      .then(function(data){
@@ -200,9 +201,73 @@ back.forEach(function(btn){
     })
     
 })
+}
 
+motivationquotes();
 
 // motivation section is completed 
+
+let totalseconds = 25*60;
+let timer = document.querySelector(".pomo-timer h1");
+let startBtn = document.querySelector(".startbtn")
+let pauseBtn = document.querySelector(".pausebtn")
+let resetBtn = document.querySelector(".resetbtn")
+let timerinterval = null;
+let isworksession = true;
+
+function upDatetime(){
+    let minutes =Math.floor(totalseconds/60);
+    let seconds = totalseconds%60;
+
+    timer.innerHTML = `${String(minutes).padStart("2","0")}:${String(seconds).padStart("2","0")}`;
+
+}
+
+function starttimer(){
+    clearInterval(timerinterval);
+   
+    if(isworksession){
+        totalseconds = 25*60;
+         timerinterval = setInterval(function(){
+        if(totalseconds>0){
+             totalseconds--;
+             upDatetime( );
+        }else{
+            isworksession = false;
+            clearInterval(timerinterval)
+            timer.innerHTML="05:00"
+     }
+    },10);
+ }else{
+    totalseconds = 5*60;
+      timerinterval = setInterval(function(){
+        if(totalseconds>0){
+             totalseconds--;
+             upDatetime( );
+        }else{
+            isworksession = true;
+            clearInterval(timerinterval)
+            timer.innerHTML="25:00"
+     }
+    },10);
+ }
+}
+
+function pausetimer(){
+    clearInterval(timerinterval);
+}
+
+function resettimer(){
+     totalseconds = 25*60;
+    upDatetime();
+    clearInterval(timerinterval);
+}
+
+startBtn.addEventListener("click",starttimer);
+pauseBtn.addEventListener("click",pausetimer);
+resetBtn.addEventListener("click",resettimer);
+
+
 
 
 

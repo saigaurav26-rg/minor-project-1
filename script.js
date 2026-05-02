@@ -214,6 +214,7 @@ let pauseBtn = document.querySelector(".pausebtn")
 let resetBtn = document.querySelector(".resetbtn")
 let timerinterval = null;
 let isworksession = true;
+let worksession = document.querySelector(".pomo-heading")
 
 function upDatetime(){
     let minutes =Math.floor(totalseconds/60);
@@ -232,10 +233,15 @@ function starttimer(){
         if(totalseconds>0){
              totalseconds--;
              upDatetime( );
+             worksession.innerHTML = "Work Session";
+           worksession.style.backgroundColor="green";
         }else{
             isworksession = false;
             clearInterval(timerinterval)
-            timer.innerHTML="05:00"
+            timer.innerHTML="05:00";
+              worksession.innerHTML = "Break Session";
+             worksession.style.backgroundColor="var(--work3)";
+             
      }
     },10);
  }else{
@@ -247,7 +253,9 @@ function starttimer(){
         }else{
             isworksession = true;
             clearInterval(timerinterval)
-            timer.innerHTML="25:00"
+            timer.innerHTML="25:00";
+            worksession.innerHTML = "Work Session";
+           worksession.style.backgroundColor="green";   
      }
     },10);
  }
@@ -266,6 +274,8 @@ function resettimer(){
 startBtn.addEventListener("click",starttimer);
 pauseBtn.addEventListener("click",pausetimer);
 resetBtn.addEventListener("click",resettimer);
+
+///pomodoro timer logic completed.........
 
 
 

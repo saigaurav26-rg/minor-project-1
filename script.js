@@ -387,10 +387,10 @@ theme.addEventListener("click",function(){
         rootelement.style.setProperty("--tri2","#FCDEC0");
         flag=2;
     }else if(flag==2){
-        rootelement.style.setProperty("--pri","#25343F");
-        rootelement.style.setProperty("--sec","#EAEFEF");
-        rootelement.style.setProperty("--tri1","#285A48");
-        rootelement.style.setProperty("--tri2","#B0E4CC");
+        rootelement.style.setProperty("--pri","#1A3263");
+        rootelement.style.setProperty("--sec","#547792");
+        rootelement.style.setProperty("--tri1","#FAB95B");
+        rootelement.style.setProperty("--tri2","#E8E2DB");
         flag=0
     }
 })

@@ -361,6 +361,41 @@ weatherfunctionality();
 
 // weather functionality is updated.....
 
+//Theme change logic...
+
+let theme = document.querySelector(".theme");
+let rootelement = document.documentElement;
+
+let flag =0;
+
+theme.addEventListener("click",function(){
+    //--pri:#2a1610;
+    //--sec:#ad826c;
+    //--tri1:#c3980d;
+    //--tri2:#FCDEC0;//
+
+    if(flag==0){
+        rootelement.style.setProperty("--pri","#202940");
+        rootelement.style.setProperty("--sec","#4B4038");
+        rootelement.style.setProperty("--tri1","#9A8678");
+        rootelement.style.setProperty("--tri2","#CAAA98");
+        flag=1;
+    }else if(flag==1){
+        rootelement.style.setProperty("--pri","#2a1610");
+        rootelement.style.setProperty("--sec","#ad826c");
+        rootelement.style.setProperty("--tri1","#c3980d");
+        rootelement.style.setProperty("--tri2","#FCDEC0");
+        flag=2;
+    }else if(flag==2){
+        rootelement.style.setProperty("--pri","#25343F");
+        rootelement.style.setProperty("--sec","#EAEFEF");
+        rootelement.style.setProperty("--tri1","#285A48");
+        rootelement.style.setProperty("--tri2","#B0E4CC");
+        flag=0
+    }
+})
+
+//theme change functionality added....
 
 
 

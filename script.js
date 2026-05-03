@@ -337,7 +337,15 @@ function timedate(){
     }else{
         header1date.innerHTML = `${dayofweek} ,${hours}:${minutes}:${String(seconds).padStart("2","0")} am`
     }
+     if(hours>=6 && hours<12){
+        bgImage ="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+    }else if(hours>=12 && hours<19){
+        bgImage ="https://images.unsplash.com/photo-1700409670474-08236194ff99?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFmdGVybm9vbiUyMHNreXxlbnwwfDB8MHx8fDA%3D";
+    }else{
+        bgImage = "https://images.unsplash.com/photo-1528353518104-dbd48bee7bc4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmlnaHQlMjBza3l8ZW58MHwwfDB8fHww";
+    }
 
+    document.querySelector(".allelems header").style.backgroundImage =`url("${bgImage}")`
    
 }
 setInterval(function(){

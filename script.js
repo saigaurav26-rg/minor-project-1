@@ -363,7 +363,8 @@ weatherfunctionality();
 
 //Theme change logic...
 
-let theme = document.querySelector(".theme");
+function changetheme(){
+    let theme = document.querySelector(".theme");
 let rootelement = document.documentElement;
 
 let flag =0;
@@ -394,7 +395,9 @@ theme.addEventListener("click",function(){
         flag=0
     }
 })
+}
 
+changetheme();
 //theme change functionality added....
 
 

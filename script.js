@@ -283,8 +283,10 @@ pomodorotimer();
 
 // weather show case....
 
-let header1date = document.querySelector(".header1 h1")
+function weatherfunctionality(){
+    let header1date = document.querySelector(".header1 h1")
 let header1date1 = document.querySelector(".header1 h2")
+let header1place = document.querySelector(".header1 h3")
 let header2temp = document.querySelector(".header2 h2")
 let header2desc = document.querySelector(".header2 h4")
 let header2humid = document.querySelector(".header2 .humidity")
@@ -297,7 +299,7 @@ function weatherAPICall(){
     let weather = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e4ba69ea850ca04f69db6d6fd518d0ae`);
     weather.then(raw=>raw.json()).then(function(data){
         console.log(data);
-        
+        let place = data.name;
         let temp = data.main.temp-273.12; 
         let weatherdesc = data.weather[0].description;
         let humidity = data.main.humidity;
@@ -309,6 +311,7 @@ function weatherAPICall(){
           header2humid.innerHTML = `Humidity: ${humidity}%`
            header2pressure.innerHTML = `Pressure: ${pressure} hPa`
            header2wind.innerHTML = `Wind: ${kmh.toFixed(1)} Km/h`
+           header1place.innerHTML= `${place}`
     })
 
    
@@ -333,9 +336,9 @@ function timedate(){
 
     header1date1.innerHTML = `${tarik} ${month} ${year}`;
     if(hours>12){
-        header1date.innerHTML = `${dayofweek} ,${hours-12}:${minutes}:${String(seconds).padStart("2","0")} pm`
+        header1date.innerHTML = `${dayofweek} ,${hours-12}:${String(minutes).padStart("2","0")}:${String(seconds).padStart("2","0")} pm`
     }else{
-        header1date.innerHTML = `${dayofweek} ,${hours}:${minutes}:${String(seconds).padStart("2","0")} am`
+        header1date.innerHTML = `${dayofweek} ,${hours}:${String(minutes).padStart("2","0")}:${String(seconds).padStart("2","0")} am`
     }
      if(hours>=6 && hours<12){
         bgImage ="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -350,7 +353,14 @@ function timedate(){
 }
 setInterval(function(){
     timedate();
-},1000)
+},1000);
+
+}
+
+weatherfunctionality();
+
+// weather functionality is updated.....
+
 
 
 

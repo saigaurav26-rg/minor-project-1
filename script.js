@@ -206,7 +206,8 @@ back.forEach(function(btn){
 motivationquotes();
 
 // motivation section is completed 
-
+function pomodorotimer(){
+    
 let totalseconds = 25*60;
 let timer = document.querySelector(".pomo-timer h1");
 let startBtn = document.querySelector(".startbtn")
@@ -274,8 +275,76 @@ function resettimer(){
 startBtn.addEventListener("click",starttimer);
 pauseBtn.addEventListener("click",pausetimer);
 resetBtn.addEventListener("click",resettimer);
+}
+
+pomodorotimer();
 
 ///pomodoro timer logic completed.........
+
+// weather show case....
+
+let header1date = document.querySelector(".header1 h1")
+let header1date1 = document.querySelector(".header1 h2")
+let header2temp = document.querySelector(".header2 h2")
+let header2desc = document.querySelector(".header2 h4")
+let header2humid = document.querySelector(".header2 .humidity")
+let header2pressure = document.querySelector(".header2 .pressure")
+let header2wind = document.querySelector(".header2 .wind")
+
+let city = "kazipet"
+
+function weatherAPICall(){
+    let weather = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e4ba69ea850ca04f69db6d6fd518d0ae`);
+    weather.then(raw=>raw.json()).then(function(data){
+        console.log(data);
+        
+        let temp = data.main.temp-273.12; 
+        let weatherdesc = data.weather[0].description;
+        let humidity = data.main.humidity;
+        let pressure = data.main.pressure;
+        let windspeed = data.wind.speed;
+        let kmh = windspeed *3.6;
+         header2temp.innerHTML = `${Math.floor(temp)}°C`;
+          header2desc.innerHTML = `${weatherdesc}`;
+          header2humid.innerHTML = `Humidity: ${humidity}%`
+           header2pressure.innerHTML = `Pressure: ${pressure} hPa`
+           header2wind.innerHTML = `Wind: ${kmh.toFixed(1)} Km/h`
+    })
+
+   
+
+
+}
+weatherAPICall();
+
+
+function timedate(){
+    const totaldaysofweek = ["Sunday" , "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday",]
+    const monthAbbrev = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let date = new Date;
+    let dayofweek = totaldaysofweek[date.getDay()]
+    let hours = date.getHours();
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+    let tarik = date.getDate()
+    let month = monthAbbrev[date.getMonth()]
+    let year = date.getFullYear()
+    let bgImage=""
+
+    header1date1.innerHTML = `${tarik} ${month} ${year}`;
+    if(hours>12){
+        header1date.innerHTML = `${dayofweek} ,${hours-12}:${minutes}:${String(seconds).padStart("2","0")} pm`
+    }else{
+        header1date.innerHTML = `${dayofweek} ,${hours}:${minutes}:${String(seconds).padStart("2","0")} am`
+    }
+
+   
+}
+setInterval(function(){
+    timedate();
+},1000)
+
+
 
 
 
